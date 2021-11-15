@@ -1,1 +1,40 @@
-<p>contacto works!</p>
+<main class="container my-5">
+
+  <h1 class="w-75 mb-3 display-3 fw-bold">Tienes algun inquietud? Contactenos!</h1>
+  <!--FORM-->
+  <form class="w-75">
+    <div class="row">
+      <div class="col form-floating">
+        <input
+          type="names"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput" required>Nombre y apellido</label>
+      </div>
+      <div class="form-floating col">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput" required>Correo Electronico</label>
+      </div>
+    </div>
+    <div class="form-floating h-75">
+      <input
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+      />
+      <label for="floatingInput" required>Tema</label>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <textarea style="resize:vertical;" class="form-control" placeholder="Mensaje..." rows="6" name="comment" required></textarea>
+    </div>
+      <button class="mt-5 w-50 btn btn-lg btn-warning" type="submit">Contactenos</button>
+  </form>
+
+</main>
