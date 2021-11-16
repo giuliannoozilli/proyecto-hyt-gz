@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="mb-5 navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/inicio']">
-      <img src="assets/icons/hyt-logo-dgrey.svg" />
-      Hoteleria y Turismo
+      <img src="assets/icons/hyt-logo-wh.svg" width="32" height="32" alt="hyt logo blanco"/>
+      Hoteleria y Turismo<sup><small>Admin</small></sup>
     </a>
     <button
       class="navbar-toggler"
@@ -19,13 +19,10 @@
     <div class="collapse navbar-collapse" id="navbarColor03">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
+          <a class="nav-link" [routerLink]="['/']">Añadir</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/list']">Pagina de admin (hidden)</a>
+          <a class="nav-link" [routerLink]="['/list']">Lista</a>
         </li>
       </ul>
       <button
@@ -33,13 +30,6 @@
         type="submit"
       >
         Salir De Sesion
-      </button>
-      <button
-        class="btn btn-warning my-2 my-sm-0"
-        type="submit"
-        [routerLink]="['/iniciarsesion']"
-      >
-        Iniciar Sesion
       </button>
     </div>
   </div>

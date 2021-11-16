@@ -22,6 +22,7 @@ const routes: Routes = [
   },
   { path: 'iniciarsesion', loadChildren: () => import('./pages/iniciarsesion/iniciarsesion.module').then(m => m.IniciarsesionModule) },
   { path: 'tutorial', loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule) },
+  { path: 'list', loadChildren: () => import('./pages/admin/list/list.module').then(m => m.ListModule) },
 ];
 
 @NgModule({
