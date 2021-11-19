@@ -8,21 +8,21 @@
       <thead>
         <tr>
           <th scope="col">Nombre</th>
-          <th scope="col">Tipo De Servicio</th>
-          <th scope="col">Precio</th>
+          <!--<th scope="col">Tipo De Servicio</th>-->
+          <!--<th scope="col">Precio</th>-->
           <th scope="col">Ubicacion</th>
           <th scope="col">Forma De Contacto</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of [0, 1, 2]">
+        <tr *ngFor="let item of fakeData">
           <!--la tr se va a repetir 4 veces-->
-          <th scope="row">Hotel Cipolletti</th>
-          <td><span class="badge bg-warning">Hoteleria</span></td>
-          <td>$900<sup>/Mes</sup></td>
-          <td>25 de mayo 181</td>
-          <td>me@mail.com</td>
+          <th scope="row">{{ item.nombreserv }}</th>
+          <!--<td><span class="badge bg-warning">Hoteleria</span></td>-->
+          <!--<td>$900<sup>/Mes</sup></td>-->
+          <td>{{ item.ubicacion }}</td>
+          <td>{{ item.formacontacto }}</td>
           <td>
             <div class="">
               <button
@@ -30,21 +30,21 @@
                 class="btn btn-outline-success m-2"
                 (click)="goToEditar(item)"
               >
-                Editar
+                <img src="assets/icons/edit.svg" />Editar
               </button>
               <button
                 type="button"
                 class="btn btn-outline-warning m-2"
                 (click)="goToVerDetalles(item)"
               >
-                Ver Detalles
+                <img src="assets/icons/details.svg" />Ver Detalles
               </button>
               <button
                 type="button"
                 class="btn btn-outline-danger m-2"
                 (click)="goToEliminar(item)"
               >
-                Eliminar
+                <img src="assets/icons/delete.svg" />Eliminar
               </button>
             </div>
           </td>

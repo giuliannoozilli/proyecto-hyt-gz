@@ -7,21 +7,42 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  navigationExtras: NavigationExtras = {
+    state: {
+      balue: null,
+    },
+  };
+
+  fakeData = [
+    {
+      nombreserv: 'Hotel De Glace',
+      ubicacion: 'España 123',
+      formacontacto: 'deglace@gmail.com',
+      descripcion: 'Hotel construido en hielo y nieve',
+    },
+    {
+      nombreserv: 'GALLERY HOTEL ART',
+      ubicacion: 'Juan Domingo Peron 635',
+      formacontacto: 'artez@gmail.com',
+      descripcion: 'En su interior alberga auténticas obras de arte',
+    },
+    {
+      nombreserv: 'PALMS CASINO RESORT',
+      ubicacion: 'Paraguay 143',
+      formacontacto: 'palmcasino@resort.com',
+      descripcion: 'Decorada al estilo Playboy',
+    },
+  ];
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  navigationExtras: NavigationExtras = {
-    state: {
-      data: null,
-    },
-  };
   goToEditar(item: any): void {
-    this.navigationExtras.state.data = item;
+    this.navigationExtras.state['balue'] = item;
     this.router.navigate(['editar'], this.navigationExtras);
   }
   goToVerDetalles(item: any): void {
-    this.navigationExtras.state.data = item;
+    this.navigationExtras.state['balue'] = item;
     this.router.navigate(['detalles'], this.navigationExtras);
   }
   goToEliminar(item: any): void {
