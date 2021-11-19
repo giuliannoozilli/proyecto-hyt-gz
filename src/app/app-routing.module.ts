@@ -20,9 +20,42 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/contacto/contacto.module').then((m) => m.ContactoModule),
   },
-  { path: 'iniciarsesion', loadChildren: () => import('./pages/iniciarsesion/iniciarsesion.module').then(m => m.IniciarsesionModule) },
-  { path: 'tutorial', loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule) },
-  { path: 'list', loadChildren: () => import('./pages/admin/list/list.module').then(m => m.ListModule) },
+  {
+    path: 'iniciarsesion',
+    loadChildren: () =>
+      import('./pages/iniciarsesion/iniciarsesion.module').then(
+        (m) => m.IniciarsesionModule
+      ),
+  },
+  {
+    path: 'tutorial',
+    loadChildren: () =>
+      import('./pages/tutorial/tutorial.module').then((m) => m.TutorialModule),
+  },
+  {
+    path: 'list',
+    loadChildren: () =>
+      import('./pages/admin/list/list.module').then((m) => m.ListModule),
+  },
+  {
+    path: 'detalles',
+    loadChildren: () =>
+      import('./pages/admin/detalles/detalles.module').then(
+        (m) => m.DetallesModule
+      ),
+  },
+  {
+    path: 'editar',
+    loadChildren: () =>
+      import('./pages/admin/editar/editar.module').then((m) => m.EditarModule),
+  },
+  {
+    path: 'agregar',
+    loadChildren: () =>
+      import('./pages/admin/agregar/agregar.module').then(
+        (m) => m.AgregarModule
+      ),
+  },
 ];
 
 @NgModule({
