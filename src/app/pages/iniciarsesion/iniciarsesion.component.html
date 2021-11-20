@@ -1,34 +1,43 @@
 <main class="container my-5">
-  <form>
-    <h1 class="mb-3 display-2 fw-bold text-center">Inicia sesion para empezar a vender.</h1>
+  <h1 class="mb-3 display-2 fw-bold text-center">
+    Inicia sesion para empezar a vender.
+  </h1>
+  <div class="d-flex justify-content-center">
+    <form class="col-md-6">
+      <div class="form-floating">
+        <input
+          type="email"
+          class="form-control"
+          id="floatingInput"
+          placeholder="name@example.com"
+        />
+        <label for="floatingInput">Correo Electronico</label>
+      </div>
+      <div class="form-floating mb-5">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="floatingPassword">Contraseña</label>
+      </div>
 
-    <div class="form-floating">
-      <input
-        type="email"
-        class="form-control"
-        id="floatingInput"
-        placeholder="name@example.com"
-      />
-      <label for="floatingInput">Email address</label>
-    </div>
-    <div class="form-floating">
-      <input
-        type="password"
-        class="form-control"
-        id="floatingPassword"
-        placeholder="Password"
-      />
-      <label for="floatingPassword">Password</label>
-    </div>
-
-    <div class="checkbox my-3">
-      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
-    </div>
-
-    <button class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark" type="submit">Sign in</button>
-  </form>
+      <button
+        class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark"
+        type="submit"
+      >
+        Iniciar Sesion
+      </button>
+    </form>
+  </div>
   <p class="d-flex justify-content-center my-2">
     ¿No tienes una cuenta?
-    <button type="button" class="py-0 px-1 btn btn-link" [routerLink]="['/contacto']">Contactenos.</button>
+    <a
+      type="button"
+      class="py-0 px-1 btn btn-link"
+      href="mailto: gzilli01@hotmail.com"
+      >Contactenos.</a
+    >
   </p>
 </main>

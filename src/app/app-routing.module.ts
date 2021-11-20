@@ -16,11 +16,6 @@ const routes: Routes = [
       import('./pages/inicio/inicio.module').then((m) => m.InicioModule),
   },
   {
-    path: 'contacto',
-    loadChildren: () =>
-      import('./pages/contacto/contacto.module').then((m) => m.ContactoModule),
-  },
-  {
     path: 'iniciarsesion',
     loadChildren: () =>
       import('./pages/iniciarsesion/iniciarsesion.module').then(
@@ -56,6 +51,7 @@ const routes: Routes = [
         (m) => m.AgregarModule
       ),
   },
+  { path: 'about', loadChildren: () => import('./pages/acercadenosotros/acercadenosotros.module').then(m => m.AcercadenosotrosModule) },
 ];
 
 @NgModule({
