@@ -10,6 +10,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { HeaderAdminComponent } from './shared/components/header-admin/header-admin.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
     AppRoutingModule,
     HeaderModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule,
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent],

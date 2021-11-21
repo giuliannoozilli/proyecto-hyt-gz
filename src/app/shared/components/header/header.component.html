@@ -30,12 +30,13 @@
           >
         </li>
       </ul>
-      <button class="btn btn-warning my-2 my-sm-0" type="submit">
+      <span class="mx-3" *ngIf=""> Usuario:</span>
+      <button class="btn btn-warning my-2 my-sm-0" type="button">
         Salir De Sesion
       </button>
       <button
         class="btn btn-warning my-2 my-sm-0"
-        type="submit"
+        type="button"
         [routerLink]="['/iniciarsesion']"
       >
         Iniciar Sesion

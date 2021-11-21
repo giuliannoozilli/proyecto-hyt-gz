@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-iniciarsesion',
   templateUrl: './iniciarsesion.component.html',
-  styleUrls: ['./iniciarsesion.component.css']
+  styleUrls: ['./iniciarsesion.component.css'],
 })
 export class IniciarsesionComponent implements OnInit {
+  usuario = {
+    email: '',
+    password: '',
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
