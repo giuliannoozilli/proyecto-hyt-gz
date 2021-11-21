@@ -25,7 +25,7 @@ export class DetallesComponent implements OnInit {
   ngOnInit(): void {
     // redirecciona al intentar entrar a una pagina de detalles sin datos
     if (typeof this.servicio === 'undefined') {
-      this.router.navigate(['list']);
+      this.volverLista();
     }
   }
 

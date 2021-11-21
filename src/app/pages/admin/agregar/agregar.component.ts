@@ -10,9 +10,9 @@ import { Servicio } from 'src/app/shared/components/models/servicio.interface';
   styleUrls: ['./agregar.component.css'],
 })
 export class AgregarComponent implements OnInit {
-  servicio: Servicio = null;
-
+  servicio: Servicio;
   servicioForm: FormGroup;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -20,11 +20,10 @@ export class AgregarComponent implements OnInit {
   ) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.['balue'];
+    this.initForm();
   }
 
   ngOnInit(): void {
-    this.initform();
-
     if (typeof this.servicio === 'undefined') {
       // redireccionar!
       this.router.navigate(['agregar']);
@@ -48,15 +47,15 @@ export class AgregarComponent implements OnInit {
     this.router.navigate(['list']);
   }
 
-  private initform(): void {
+  private initForm(): void {
     this.servicioForm = this.fb.group({
-      nombreserv: ['', [Validators.required]],
-      // tipodeserv: ['', [Validators.required]],
-      precio: ['', [Validators.required]],
-      ubicacion: ['', [Validators.required]],
-      formacontacto: ['', [Validators.required]],
+      nombreserv: [''],
+      // tipodeserv: [''],
+      precio: [''],
+      ubicacion: [''],
+      formacontacto: [''],
       // imagen: [''],
-      descripcion: ['', [Validators.required]],
+      descripcion: [''],
     });
   }
 }

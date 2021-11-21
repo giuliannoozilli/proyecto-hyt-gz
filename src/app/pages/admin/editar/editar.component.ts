@@ -10,9 +10,9 @@ import { ServiciosService } from '../servicios.service';
   styleUrls: ['./editar.component.css'],
 })
 export class EditarComponent implements OnInit {
-  servicio: Servicio = null;
-
+  servicio: Servicio;
   servicioForm: FormGroup;
+
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -20,13 +20,12 @@ export class EditarComponent implements OnInit {
   ) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.['balue'];
+    this.initForm();
   }
 
   ngOnInit(): void {
-    this.initform();
-
     if (typeof this.servicio === 'undefined') {
-      // redireccionar!
+      // redireccionar
       this.router.navigate(['agregar']);
     } else {
       this.servicioForm.patchValue(this.servicio);
@@ -48,15 +47,15 @@ export class EditarComponent implements OnInit {
     this.router.navigate(['list']);
   }
 
-  private initform(): void {
+  private initForm(): void {
     this.servicioForm = this.fb.group({
-      nombreserv: ['', [Validators.required]],
-      // tipodeserv: ['', [Validators.required]],
-      precio: ['', [Validators.required]],
-      ubicacion: ['', [Validators.required]],
-      formacontacto: ['', [Validators.required]],
+      nombreserv: [''],
+      // tipodeserv: [''],
+      precio: [''],
+      ubicacion: [''],
+      formacontacto: [''],
       // imagen: [''],
-      descripcion: ['', [Validators.required]],
+      descripcion: [''],
     });
   }
 }
