@@ -7,6 +7,7 @@ import {
 } from '@angular/fire/compat/firestore';
 
 import { map } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -19,10 +20,32 @@ export class ServiciosService {
     this.getServicios();
   }
 
-  // Elimina
-  borrarServicio(servId: string): Promise<void> {}
+  borrarServicios(servId: string): Promise<void> {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const result = await this.serviciosCollection.doc(servId).delete();
+        resolve(result);
+      } catch (err) {
+        reject(err.message);
+      }
+    });
+  }
+
+  // recibe el servicio que queremos GUARDAR/EDITAR junto con su ID
+  // servId es por predeterminado NULL
   guardarServicio(servicio: Servicio, servId: string): Promise<void> {
-    // 1:30:47
+    return new Promise(async (resolve, reject) => {
+      try {
+        // referido al resolve
+        const id = servId || this.afs.createId(); // ** en caso de no existir el id (la cual, siempre es nuevo), genera un id nuevo a firebase
+        const data = { id, ...servicio };
+        const result = await this.serviciosCollection.doc(id).set(data); // ** almacena el resultado de la coleccion
+        resolve(result);
+      } catch (err) {
+        // referido al reject
+        reject(err.message);
+      }
+    }); // promesa con la cual si todo vaya bien o algo vaya mal ??
   }
 
   // este metodo va a FB, lee la coleccion de empleados y guardar esos servicios en "servicios" (linea 13)

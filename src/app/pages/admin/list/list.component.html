@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of fakeData">
+        <tr *ngFor="let item of employees$ | async">
           <!--la tr se va a repetir 4 veces-->
           <th scope="row">{{ item.nombreserv }}</th>
           <!--<td><span class="badge bg-warning">Hoteleria</span></td>-->
@@ -42,7 +42,7 @@
               <button
                 type="button"
                 class="btn btn-outline-danger m-2"
-                (click)="goToEliminar(item)"
+                (click)="goToEliminar(item.id)"
               >
                 <img src="assets/icons/delete.svg" />Eliminar
               </button>

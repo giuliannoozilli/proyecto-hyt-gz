@@ -1,8 +1,11 @@
 <h1 class="display-3 text-center mb-5">Agregue un nuevo servicio.</h1>
-<!--(ngSubmit)="onGuardar()"
-    [formGroup]="servicioForm"-->
+
 <div class="container">
-  <form class="mt-3 col-md-8 offset-md-2">
+  <form
+    class="mt-3 col-md-8 offset-md-2"
+    (ngSubmit)="onGuardar()"
+    [formGroup]="servicioForm"
+  >
     <div class="row">
       <div class="form-group col-md-6">
         <input

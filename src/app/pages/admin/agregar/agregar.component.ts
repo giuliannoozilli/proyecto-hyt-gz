@@ -1,3 +1,4 @@
+import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,7 +13,11 @@ export class AgregarComponent implements OnInit {
   servicio: Servicio = null;
 
   servicioForm: FormGroup;
-  constructor(private router: Router, private fb: FormBuilder) {
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private serviciosSvc: ServiciosService
+  ) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.['balue'];
   }
@@ -29,7 +34,14 @@ export class AgregarComponent implements OnInit {
   }
 
   onGuardar(): void {
-    console.log('Servicio Publicado', this.servicioForm.value);
+    alert('Servicio Publicado');
+    console.log(this.servicioForm.value);
+    if (this.servicioForm.valid) {
+      const servicio = this.servicioForm.value;
+      const servicioId = this.servicio?.id || null;
+      this.serviciosSvc.guardarServicio(servicio, servicioId);
+      this.servicioForm.reset();
+    }
   }
 
   volverLista(): void {

@@ -1,3 +1,4 @@
+import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 
@@ -7,33 +8,14 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
+  employees$ = this.serviciosSvc.servicios;
   navigationExtras: NavigationExtras = {
     state: {
       balue: null,
     },
   };
 
-  fakeData = [
-    {
-      nombreserv: 'Hotel De Glace',
-      ubicacion: 'España 123',
-      formacontacto: 'deglace@gmail.com',
-      descripcion: 'Hotel construido en hielo y nieve',
-    },
-    {
-      nombreserv: 'GALLERY HOTEL ART',
-      ubicacion: 'Juan Domingo Peron 635',
-      formacontacto: 'artez@gmail.com',
-      descripcion: 'En su interior alberga auténticas obras de arte',
-    },
-    {
-      nombreserv: 'PALMS CASINO RESORT',
-      ubicacion: 'Paraguay 143',
-      formacontacto: 'palmcasino@resort.com',
-      descripcion: 'Decorada al estilo Playboy',
-    },
-  ];
-  constructor(private router: Router) {}
+  constructor(private router: Router, private serviciosSvc: ServiciosService) {}
 
   ngOnInit(): void {}
 
@@ -45,7 +27,12 @@ export class ListComponent implements OnInit {
     this.navigationExtras.state['balue'] = item;
     this.router.navigate(['detalles'], this.navigationExtras);
   }
-  goToEliminar(item: any): void {
+  async goToEliminar(servId: string): Promise<void> {
+    try {
+      await this.serviciosSvc.borrarServicios(servId);
+    } catch (err) {
+      console.log(err.message);
+    }
     alert('Servicio eliminado de la lista');
   }
 }
