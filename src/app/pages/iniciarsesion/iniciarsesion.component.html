@@ -3,24 +3,22 @@
     Inicia sesion para empezar a vender.
   </h1>
   <div class="d-flex justify-content-center">
-    <form class="col-md-6">
+    <form class="col-md-6" *ngIf="!isSignedIn">
       <div class="form-floating">
         <input
-          [(ngModel)]="usuario.email"
-          [ngModelOptions]="{ standalone: true }"
           type="email"
           class="form-control"
           placeholder="name@example.com"
+          #email
         />
         <label for="floatingInput">Correo Electronico</label>
       </div>
       <div class="form-floating mb-5">
         <input
-          [(ngModel)]="usuario.password"
-          [ngModelOptions]="{ standalone: true }"
           type="password"
           class="form-control"
           placeholder="Password"
+          #password
         />
         <label for="floatingPassword">Contraseña</label>
       </div>
@@ -28,6 +26,7 @@
       <button
         class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark"
         type="button"
+        (click)="onSignin(email.value, password.value)"
       >
         Iniciar Sesion
       </button>

@@ -30,8 +30,12 @@
           >
         </li>
       </ul>
-      <span class="mx-3" *ngIf=""> Usuario:</span>
-      <button class="btn btn-warning my-2 my-sm-0" type="button">
+      <span class="mx-3"> Cuenta: {{ email }} </span>
+      <button
+        class="btn btn-warning my-2 my-sm-0"
+        type="button"
+        (click)="logout()"
+      >
         Salir De Sesion
       </button>
       <button
