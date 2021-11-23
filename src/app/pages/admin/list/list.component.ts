@@ -20,11 +20,11 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private serviciosSvc: ServiciosService,
-    private authService: AuthService,
-    private iniComp: IniciarsesionComponent
+    //private authService: AuthService,
+    //private iniComp: IniciarsesionComponent
   ) {}
 
-  email = this.iniComp.user.email;
+  // email = this.iniComp.user.email;
   ngOnInit(): void {}
 
   goToEditar(item: any): void {

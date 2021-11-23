@@ -40,7 +40,7 @@
           formControlName="ubicacion"
         />
       </div>
-      <div class="form-group col-md-12">
+      <div class="form-group col-md-6">
         <input
           type="text"
           class="form-control"
@@ -48,13 +48,23 @@
           formControlName="formacontacto"
         />
       </div>
-      <!--
+
       <div class="form-group col-md-6">
-        <input class="form-control" type="file" id="formFile" />
+        <input
+          class="form-control"
+          type="file"
+          accept=".png, .jpg"
+          (change)="onUpload($event)"
+        />
       </div>
-      -->
+
       <div class="form-group mb-3">
-        <textarea class="form-control" aria-label="With textarea" placeholder="Descripcion" formControlName="descripcion"></textarea>
+        <textarea
+          class="form-control"
+          aria-label="With textarea"
+          placeholder="Descripcion"
+          formControlName="descripcion"
+        ></textarea>
       </div>
     </div>
     <div class="d-flex justify-content-center">
