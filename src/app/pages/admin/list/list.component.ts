@@ -1,6 +1,8 @@
 import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
+import { IniciarsesionComponent } from '../../iniciarsesion/iniciarsesion.component';
 
 @Component({
   selector: 'app-list',
@@ -15,8 +17,14 @@ export class ListComponent implements OnInit {
     },
   };
 
-  constructor(private router: Router, private serviciosSvc: ServiciosService) {}
+  constructor(
+    private router: Router,
+    private serviciosSvc: ServiciosService,
+    private authService: AuthService,
+    private iniComp: IniciarsesionComponent
+  ) {}
 
+  email = this.iniComp.user.email;
   ngOnInit(): void {}
 
   goToEditar(item: any): void {

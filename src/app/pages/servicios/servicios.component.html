@@ -1,156 +1,90 @@
-<div
-  id="carouselExampleCaptions"
-  class="carousel slide"
-  data-bs-ride="carousel"
-  *ngFor="let item of servicios$ | async"
->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="assets/hyt-featured-bg.png" class="d-block w-100" alt="..." />
-
-      <div class="carousel-caption d-none d-md-block mb-5">
-        <div class="row">
-          <div class="col">
-            <h1 class="text-dark display-2 fw-bold">{{ item.nombreserv }}</h1>
-            <p class="text-dark"><sup>ARG</sup>${{ item.precio }}</p>
-            <button type="button" class="text-dark btn btn-warning" data-bs-toggle="modal" data-bs-target="#servicioModal">
-              Obtener Informacion
-              <img src="assets/icons/arrow_right-2.svg" />
-            </button>
-            <!-- Modal hero section -->
-            <div class="modal fade" id="servicioModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <img width="30" height="30" src="assets/icons/hyt-logo-yellowgrad.svg">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <h1 class="card-title text-center">{{ item.nombreserv }}</h1>
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        Tipo de servicio:
-                        <h5><span class="badge bg-warning"> {{ item.tipodeserv }} </span></h5>
-                      </li>
-                      <li class="list-group-item">
-                        Precio:
-                        <h5><sup>ARG</sup>${{ item.precio }}</h5>
-                      </li>
-                      <li class="list-group-item">
-                        Direccion:
-                        <h5>{{ item.ubicacion }}</h5>
-                      </li>
-                      <li class="list-group-item">
-                        Forma de contactar:
-                        <h5>{{ item.formacontacto }}</h5>
-                      </li>
-                      <li class="list-group-item">
-                        Descripcion:
-                        <h5>{{ item.descripcion }}</h5>
-                      </li>
-                    </ul>
-                  </div>
+<div class="container">
+  <div class="row">
+    <div
+      *ngFor="let item of servicios$ | async"
+      class="col card border-warning border-5 mx-2"
+      style="max-width: 40rem"
+    >
+      <div class="card-body row">
+        <div class="col-5">
+          <h4 class="card-title">{{ item.nombreserv }}</h4>
+          <h5>
+            <span class="badge bg-warning"> {{ item.tipodeserv }} </span>
+          </h5>
+          <p class="card-text"><sup>ARG</sup>${{ item.precio }}</p>
+          <button
+            type="button"
+            class="btn btn-dark btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#servicioModal2"
+          >
+            Obtener Informacion
+          </button>
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="servicioModal2"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <img
+                    width="30"
+                    height="30"
+                    src="assets/icons/hyt-logo-yellowgrad.svg"
+                  />
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <h1 class="card-title text-center">{{ item.nombreserv }}</h1>
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      Tipo de servicio:
+                      <h5>
+                        <span class="badge bg-warning">
+                          {{ item.tipodeserv }}
+                        </span>
+                      </h5>
+                    </li>
+                    <li class="list-group-item">
+                      Precio:
+                      <h5><sup>ARG</sup>${{ item.precio }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                      Direccion:
+                      <h5>{{ item.ubicacion }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                      Forma de contactar:
+                      <h5>{{ item.formacontacto }}</h5>
+                    </li>
+                    <li class="list-group-item">
+                      Descripcion:
+                      <h5>{{ item.descripcion }}</h5>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <!-- Modal hero section end -->
-          </div>
-          <div class="col">
-            <img
-              src="assets/fake-data/hotel-1.jpg"
-              class="w-100 border border-warning"
-              alt="servicio de oferta 1"
-            />
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-      <img
-        src="assets/hyt-featured-bg.png"
-        class="d-block w-100"
-        alt="background"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <div class="row">
-          <div class="col">
-            <h1 class="text-dark display-2 fw-bold">Camino Veranistico</h1>
-            <p class="text-dark"><sup>ARG</sup>$1000</p>
-            <button type="button" class="text-dark btn btn-warning">
-              Obtener Informacion
-              <img src="assets/icons/arrow_right-2.svg" />
-            </button>
-          </div>
-          <div class="col">
-            <img
-              src="assets/fake-data/tour-1.jpg"
-              class="w-100 border border-warning"
-              alt="servicio de oferta 1"
-            />
-          </div>
+        <div class="col">
+          <img
+            width="500"
+            src="assets/fake-data/hotel-3.jpg"
+            alt="imagen de servicio hotelero"
+          />
         </div>
       </div>
     </div>
   </div>
+  <hr class="dropdown-divider" />
 </div>
-<hr class="dropdown-divider" />
-<div class="container">
-  <div class="row">
-      <div *ngFor="let item of servicios$ | async" class="col card border-warning border-5 mx-2" style="max-width: 40rem">
-        <div class="card-body row">
-          <div class="col-5">
-            <h4 class="card-title">{{ item.nombreserv }}</h4>
-            <h5><span class="badge bg-warning"> {{ item.tipodeserv }} </span></h5>
-            <p class="card-text"><sup>ARG</sup>${{ item.precio }}</p>
-            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#servicioModal2">
-              Obtener Informacion
-            </button>
-            <!-- Modal -->
-            <div class="modal fade" id="servicioModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <img width="30" height="30" src="assets/icons/hyt-logo-yellowgrad.svg">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <h1 class="card-title text-center">{{ item.nombreserv }}</h1>
-                    <ul class="list-group">
-                      <li class="list-group-item">
-                        Tipo de servicio:
-                        <h5><span class="badge bg-warning"> {{ item.tipodeserv }} </span></h5>
-                      </li>
-                      <li class="list-group-item">
-                        Precio:
-                        <h5><sup>ARG</sup>${{ item.precio }}</h5>
-                      </li>
-                      <li class="list-group-item">
-                        Direccion:
-                        <h5>{{ item.ubicacion }}</h5>
-                      </li>
-                      <li class="list-group-item">
-                        Forma de contactar:
-                        <h5>{{ item.formacontacto }}</h5>
-                      </li>
-                      <li class="list-group-item">
-                        Descripcion:
-                        <h5>{{ item.descripcion }}</h5>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <img
-              width="500"
-              src="assets/fake-data/hotel-3.jpg"
-              alt="imagen de servicio hotelero"
-            />
-          </div>
-        </div>
-      </div>
-</div>
-<hr class="dropdown-divider" />

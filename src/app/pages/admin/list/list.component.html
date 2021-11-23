@@ -1,6 +1,7 @@
 <div class="container">
   <h1 class="display-2 text-center mb-5">
-    Bienvenidos, <strong class="fw-bold">Leonardo</strong>.
+    Bienvenidos, <strong class="fw-bold">{{ email }}</strong
+    >.
   </h1>
 
   <div class="table-responsive">
@@ -18,7 +19,9 @@
       <tbody>
         <tr *ngFor="let item of servicios$ | async">
           <th scope="row">{{ item.nombreserv }}</th>
-          <td><span class="badge bg-warning"> {{ item.tipodeserv }}</span></td>
+          <td>
+            <span class="badge bg-warning"> {{ item.tipodeserv }}</span>
+          </td>
           <!--<td>$900<sup>/Mes</sup></td>-->
           <td>{{ item.ubicacion }}</td>
           <td>{{ item.formacontacto }}</td>

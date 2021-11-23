@@ -6,30 +6,34 @@
     <form class="col-md-6">
       <div class="form-floating">
         <input
-          [(ngModel)]="usuario.email"
-          [ngModelOptions]="{ standalone: true }"
           type="email"
           class="form-control"
           placeholder="name@example.com"
+          [(ngModel)]="user.email"
+          [ngModelOptions]="{ standalone: true }"
         />
         <label for="floatingInput">Correo Electronico</label>
       </div>
       <div class="form-floating mb-5">
         <input
-          [(ngModel)]="usuario.password"
-          [ngModelOptions]="{ standalone: true }"
           type="password"
           class="form-control"
           placeholder="Password"
+          [(ngModel)]="user.password"
+          [ngModelOptions]="{ standalone: true }"
         />
         <label for="floatingPassword">Contraseña</label>
       </div>
 
       <button
         class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark"
-        type="button"
+        type="submit"
+        (click)="logIn(user.email, user.password)"
       >
         Iniciar Sesion
+        <div>
+          <img src="assets/icons/login_white.svg" alt="sign in icono" />
+        </div>
       </button>
     </form>
   </div>

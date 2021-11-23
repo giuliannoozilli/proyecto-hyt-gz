@@ -25,7 +25,6 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
     if (typeof this.servicio === 'undefined') {
-      // redireccionar!
       this.router.navigate(['agregar']);
     } else {
       this.servicioForm.patchValue(this.servicio);
