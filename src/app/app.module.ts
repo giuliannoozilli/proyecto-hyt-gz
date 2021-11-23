@@ -11,6 +11,7 @@ import { HeaderAdminComponent } from './shared/components/header-admin/header-ad
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/forms';
     HeaderModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
+    AngularFireAuthModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent],
