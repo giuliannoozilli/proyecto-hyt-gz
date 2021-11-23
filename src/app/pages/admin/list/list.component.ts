@@ -8,7 +8,7 @@ import { NavigationExtras, Router } from '@angular/router';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  employees$ = this.serviciosSvc.servicios;
+  servicios$ = this.serviciosSvc.servicios;
   navigationExtras: NavigationExtras = {
     state: {
       balue: null,

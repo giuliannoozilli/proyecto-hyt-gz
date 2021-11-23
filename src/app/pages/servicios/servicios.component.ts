@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ServiciosService } from '../admin/servicios.service';
 
 @Component({
   selector: 'app-servicios',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements OnInit {
-
-  constructor() { }
+  servicios$ = this.serviciosSvc.servicios;
+  constructor(private router: Router, private serviciosSvc: ServiciosService) { }
 
   ngOnInit(): void {
   }

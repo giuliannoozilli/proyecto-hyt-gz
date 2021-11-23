@@ -50,7 +50,7 @@ export class AgregarComponent implements OnInit {
   private initForm(): void {
     this.servicioForm = this.fb.group({
       nombreserv: [''],
-      // tipodeserv: [''],
+      tipodeserv: [''],
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
