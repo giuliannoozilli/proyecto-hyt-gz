@@ -16,4 +16,12 @@ export class AuthService {
   login(email: string, password: string){
     this.auth.signInWithEmailAndPassword(email, password)
   }
+
+  get authenticated():boolean {
+    return this.user != null;
+  }
+
+  get currentUser(): Observable<any> {
+    return this.user
+  }
 }
