@@ -1,6 +1,10 @@
 <div class="container">
   <h1 class="display-2 text-center mb-5">
-    Bienvenidos, <strong class="fw-bold">Leonardo</strong>.
+    ¡Bienvenidos,
+    <div>
+      <strong class="fw-bold">{{ email$ }}</strong>
+    </div>
+    !
   </h1>
 
   <div class="table-responsive">
@@ -8,18 +12,19 @@
       <thead>
         <tr>
           <th scope="col">Nombre</th>
-          <!--<th scope="col">Tipo De Servicio</th>-->
+          <th scope="col">Tipo De Servicio</th>
           <!--<th scope="col">Precio</th>-->
-          <th scope="col">Ubicacion</th>
+          <th scope="col">Direccion</th>
           <th scope="col">Forma De Contacto</th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of employees$ | async">
-          <!--la tr se va a repetir 4 veces-->
+        <tr *ngFor="let item of servicios$ | async">
           <th scope="row">{{ item.nombreserv }}</th>
-          <!--<td><span class="badge bg-warning">Hoteleria</span></td>-->
+          <td>
+            <span class="badge bg-warning"> {{ item.tipodeserv }}</span>
+          </td>
           <!--<td>$900<sup>/Mes</sup></td>-->
           <td>{{ item.ubicacion }}</td>
           <td>{{ item.formacontacto }}</td>

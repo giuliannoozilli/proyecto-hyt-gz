@@ -1,3 +1,5 @@
+import { AuthService } from './../auth/auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,12 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./iniciarsesion.component.css'],
 })
 export class IniciarsesionComponent implements OnInit {
-  usuario = {
-    email: '',
-    password: '',
-  };
+  constructor(private router: Router, private authService: AuthService) {}
+  public email: string;
+  public password: string;
 
-  constructor() {}
-
+  onLogin(): void {
+    console.log('email: ', this.email);
+    console.log('password: ', this.password);
+    this.authService
+      .loginEmailUser(this.email, this.password)
+      .then((res) => {
+        this.onLoginRedirect();
+      })
+      .catch((err) => console.log(err.message));
+  }
+  onLogout() {
+    this.authService.logoutUser();
+  }
+  onLoginRedirect(): void {
+    this.router.navigate(['/list']);
+  }
   ngOnInit(): void {}
 }

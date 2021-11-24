@@ -1,21 +1,30 @@
+import { IniciarsesionComponent } from './../../iniciarsesion/iniciarsesion.component';
 import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
+  providers: [IniciarsesionComponent],
 })
 export class ListComponent implements OnInit {
-  employees$ = this.serviciosSvc.servicios;
+  public email$: string = this.inicomp.email;
+
+  servicios$ = this.serviciosSvc.servicios;
   navigationExtras: NavigationExtras = {
     state: {
       balue: null,
     },
   };
 
-  constructor(private router: Router, private serviciosSvc: ServiciosService) {}
+  constructor(
+    private router: Router,
+    private serviciosSvc: ServiciosService,
+    private inicomp: IniciarsesionComponent
+  ) {}
 
   ngOnInit(): void {}
 
