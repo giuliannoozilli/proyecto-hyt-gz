@@ -31,9 +31,9 @@ export class AgregarComponent implements OnInit {
   }
 
   onUpload(e: any) {
-    // console.log('subir', e.target.files[0]);
+    console.log('subir', e.target.files[0]);
     const id = Math.random().toString(36).substring(2);
-    const file = e.target.files[0];
+    var file = e.target.files[0];
     const filePath = `uploads/servicio-${id}`;
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
@@ -43,6 +43,9 @@ export class AgregarComponent implements OnInit {
       .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
       .subscribe();
   }
+  /*obtenerImg() {
+    return this.file;
+  }*/
 
   ngOnInit(): void {
     if (typeof this.servicio === 'undefined') {
@@ -74,7 +77,7 @@ export class AgregarComponent implements OnInit {
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
-      imagen: [this.urlImage],
+      // imagen: [this.],
       descripcion: [''],
     });
   }

@@ -47,7 +47,12 @@
       </div>
 
       <div class="form-group col-md-6">
-        <input class="form-control" type="file" id="formFile" />
+        <input
+          class="form-control"
+          type="file"
+          accept=".png, .jpg"
+          (change)="onUpload($event)"
+        />
       </div>
 
       <div class="form-group mb-3">
