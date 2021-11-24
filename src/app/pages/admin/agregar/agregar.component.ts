@@ -30,7 +30,7 @@ export class AgregarComponent implements OnInit {
     this.initForm();
   }
 
-  onUpload(e) {
+  onUpload(e: any) {
     // console.log('subir', e.target.files[0]);
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
@@ -74,7 +74,7 @@ export class AgregarComponent implements OnInit {
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
-      // imagen: [''],
+      imagen: [this.urlImage],
       descripcion: [''],
     });
   }
