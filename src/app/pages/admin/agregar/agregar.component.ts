@@ -43,6 +43,7 @@ export class AgregarComponent implements OnInit {
       .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
       .subscribe();
   }
+
   /*obtenerImg() {
     return this.file;
   }*/

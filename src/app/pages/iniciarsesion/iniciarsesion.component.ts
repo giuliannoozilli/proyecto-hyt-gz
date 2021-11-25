@@ -10,13 +10,5 @@ import { AuthService } from '../auth/auth.service';
 export class IniciarsesionComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService) {}
 
-  user = {
-    email: '',
-    password: '',
-  };
-  logIn(email: string, password: string): void {
-    this.authService.iniciarSesion(email, password);
-    this.router.navigate(['list']);
-  }
   ngOnInit(): void {}
 }

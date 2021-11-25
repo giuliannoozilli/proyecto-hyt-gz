@@ -9,26 +9,17 @@
           type="email"
           class="form-control"
           placeholder="name@example.com"
-          [(ngModel)]="user.email"
-          [ngModelOptions]="{ standalone: true }"
         />
         <label for="floatingInput">Correo Electronico</label>
       </div>
       <div class="form-floating mb-5">
-        <input
-          type="password"
-          class="form-control"
-          placeholder="Password"
-          [(ngModel)]="user.password"
-          [ngModelOptions]="{ standalone: true }"
-        />
+        <input type="password" class="form-control" placeholder="Password" />
         <label for="floatingPassword">Contraseña</label>
       </div>
 
       <button
         class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark"
         type="submit"
-        (click)="logIn(user.email, user.password)"
       >
         Iniciar Sesion
         <div>
