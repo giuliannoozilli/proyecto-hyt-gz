@@ -14,7 +14,6 @@ export class IniciarsesionComponent implements OnInit {
 
   onLogin(): void {
     console.log('email: ', this.email);
-    console.log('password: ', this.password);
     this.authService
       .loginEmailUser(this.email, this.password)
       .then((res) => {
@@ -22,9 +21,7 @@ export class IniciarsesionComponent implements OnInit {
       })
       .catch((err) => console.log(err.message));
   }
-  onLogout() {
-    this.authService.logoutUser();
-  }
+
   onLoginRedirect(): void {
     this.router.navigate(['/list']);
   }

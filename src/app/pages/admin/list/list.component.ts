@@ -11,6 +11,18 @@ import { AuthService } from '../../auth/auth.service';
   providers: [IniciarsesionComponent],
 })
 export class ListComponent implements OnInit {
+  /* ***
+  Problema: cuando el usuario inicie sesion, quiero que:
+  - se dirige a list html (funciona bien)
+  - esconder el header normal y mostrar el header-admin (ambos headers estan en app.component.html)
+  - muestre su correo en el list html (para darse la idea que esta logueado)
+
+  Estoy teniendo fallos en los ultimos puntos:
+
+  - ¿Como puede ser el ngIf de cada header para que se esconde el header admin, cuando NO esta logueando y que cuando ESTE logueando que se muestre 3l HEADER ADMIN y que se esconda el HEADER normal?
+
+  - Por logica, estoy llamando bien al variable del email, pero al iniciar sesion, no me figura. Puede ser problemas en pasar la variable "email" de iniciarsesioncomponent a lista.component.ts??
+  */
   public email$: string = this.inicomp.email;
 
   servicios$ = this.serviciosSvc.servicios;
@@ -23,7 +35,7 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private serviciosSvc: ServiciosService,
-    private inicomp: IniciarsesionComponent
+    public inicomp: IniciarsesionComponent
   ) {}
 
   ngOnInit(): void {}

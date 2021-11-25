@@ -1,4 +1,4 @@
 <app-header></app-header>
-<app-header-admin></app-header-admin>
+<app-header-admin *ngIf="isSignedIn"></app-header-admin>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
