@@ -7,16 +7,16 @@
           Nombre del servicio:
           <h5>{{ servicio.nombreserv }}</h5>
         </li>
-        <!--<li class="list-group-item">
-          Tipo de servicio:
-          <h5><span class="badge bg-warning">Hotelerias</span></h5>
-        </li>-->
-        <!--<li class="list-group-item">
-          Precio:
-          <h5>$900<sup>/Mes</sup></h5>
-        </li>-->
         <li class="list-group-item">
-          Ubicacion:
+          Tipo de servicio:
+          <h5><span class="badge bg-warning"> {{ servicio.tipodeserv }} </span></h5>
+        </li>
+        <li class="list-group-item">
+          Precio:
+          <h5>{{ servicio.precio }}</h5>
+        </li>
+        <li class="list-group-item">
+          Direccion:
           <h5>{{ servicio.ubicacion }}</h5>
         </li>
         <li class="list-group-item">
