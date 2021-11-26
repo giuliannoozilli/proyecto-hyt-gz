@@ -18,6 +18,7 @@
             class="btn btn-dark btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#servicioModal2"
+            (click)="cargarModal(item)"
           >
             Obtener Informacion
           </button>
@@ -45,31 +46,31 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <h1 class="card-title text-center">{{ item.nombreserv }}</h1>
+                  <h1 class="card-title text-center">{{ itemSeleccionado.nombreserv }}</h1>
                   <ul class="list-group">
                     <li class="list-group-item">
                       Tipo de servicio:
                       <h5>
                         <span class="badge bg-warning">
-                          {{ item.tipodeserv }}
+                          {{ itemSeleccionado.tipodeserv }}
                         </span>
                       </h5>
                     </li>
                     <li class="list-group-item">
                       Precio:
-                      <h5><sup>ARG</sup>${{ item.precio }}</h5>
+                      <h5><sup>ARG</sup>${{ itemSeleccionado.precio }}</h5>
                     </li>
                     <li class="list-group-item">
                       Direccion:
-                      <h5>{{ item.ubicacion }}</h5>
+                      <h5>{{ itemSeleccionado.ubicacion }}</h5>
                     </li>
                     <li class="list-group-item">
                       Forma de contactar:
-                      <h5>{{ item.formacontacto }}</h5>
+                      <h5>{{ itemSeleccionado.formacontacto }}</h5>
                     </li>
                     <li class="list-group-item">
                       Descripcion:
-                      <h5>{{ item.descripcion }}</h5>
+                      <h5>{{ itemSeleccionado.descripcion }}</h5>
                     </li>
                   </ul>
                 </div>

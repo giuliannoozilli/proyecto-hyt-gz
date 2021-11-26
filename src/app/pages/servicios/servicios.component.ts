@@ -9,7 +9,13 @@ import { ServiciosService } from '../admin/servicios.service';
 })
 export class ServiciosComponent implements OnInit {
   servicios$ = this.serviciosSvc.servicios;
+  itemSeleccionado
+
   constructor(private router: Router, private serviciosSvc: ServiciosService) { }
+
+  cargarModal(item) {
+    this.itemSeleccionado = item
+  }
 
   ngOnInit(): void {
   }
