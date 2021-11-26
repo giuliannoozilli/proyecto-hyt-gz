@@ -14,6 +14,7 @@ export class HeaderAdminComponent implements OnInit {
     this.authSvc.logoutUser();
     this.router.navigate(['/inicio']);
     console.clear();
+    console.log('Cerrando sesion...')
   }
 
   ngOnInit(): void {}

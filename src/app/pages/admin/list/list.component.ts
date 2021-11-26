@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
 
   - Por logica, estoy llamando bien al variable del email, pero al iniciar sesion, no me figura. Puede ser problemas en pasar la variable "email" de iniciarsesioncomponent a lista.component.ts??
   */
-  public email$: string = this.inicomp.email;
+  public email$: string | null= "";
 
   servicios$ = this.serviciosSvc.servicios;
   navigationExtras: NavigationExtras = {
@@ -35,10 +35,17 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private serviciosSvc: ServiciosService,
-    public inicomp: IniciarsesionComponent
+    public inicomp: IniciarsesionComponent,
+    private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authService.user.subscribe(user => {
+      if (user) {
+        this.email$= user.email;
+      }
+    })
+  }
 
   goToEditar(item: any): void {
     this.navigationExtras.state['balue'] = item;

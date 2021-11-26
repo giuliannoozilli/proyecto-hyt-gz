@@ -24,6 +24,7 @@ export class AuthService {
     return this.afAuth.signOut();
   }
   authenticated(): boolean {
-    return this.user != null; // True o False
+    console.log(this.user)
+    return this.user != null;
   }
 }
