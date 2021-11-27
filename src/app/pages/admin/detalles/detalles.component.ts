@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NavigationExtras, Router } from '@angular/router';
-import * as firebase from 'firebase/compat';
 import { Servicio } from 'src/app/shared/components/models/servicio.interface';
 import { ServiciosService } from '../servicios.service';
 
@@ -12,20 +11,7 @@ import { ServiciosService } from '../servicios.service';
 })
 export class DetallesComponent implements OnInit {
   servicio: Servicio = null;
-  /*
-  storage = firebase.storage();
-  storageRef = this.storage.ref();
-  tangRef = this.storageRef.child('images/servicio-a1k997k79zg.jpeg');
 
-  firebase.auth().then({
-    this.tangRef.getDownloadURL().then(function(url){
-      document.querySelector('img').src = url;
-
-    }).catch(function(error) {
-      console.error(error);
-    });
-  });
-  */
   navigationExtras: NavigationExtras = {
     state: {
       balue: null,

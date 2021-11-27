@@ -7,7 +7,7 @@
         height="32"
         alt="hyt logo blanco"
       />
-      Hoteleria y Turismo<sup style="font-size: 15px">Admin</sup>
+      Cipolletti Host<sup style="font-size: 15px">Admin</sup>
     </a>
     <button
       class="navbar-toggler"
@@ -27,7 +27,16 @@
           <a class="nav-link" [routerLink]="['/list']">Lista</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/agregar']">Añadir</a>
+          <a class="nav-link" [routerLink]="['/agregar']">Añadir Servicio</a>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link">|</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">Acerca De Nosotros</a>
         </li>
       </ul>
       <button class="btn btn-warning my-2" type="submit" (click)="onLogout()">

@@ -16,8 +16,11 @@ export class AgregarComponent implements OnInit {
   servicio: Servicio;
   servicioForm: FormGroup;
 
-  uploadPercent: Observable<number>;
   urlImage: Observable<string>;
+
+  //imagen
+  private file!: File;
+  public pathImage: string = '';
 
   constructor(
     private router: Router,
@@ -32,13 +35,15 @@ export class AgregarComponent implements OnInit {
 
   onUpload(e: any) {
     console.log('subir', e.target.files[0]);
+    // creando caracteres aleatorio para ponerle como id
     const id = Math.random().toString(36).substring(2);
+    // escogiendo el arcchivo en si
     var file = e.target.files[0];
-    const filePath = `Servicios/servicio-${id}`;
-    const ref = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
-    this.uploadPercent = task.percentageChanges();
-    task
+
+    const filePath = `Servicios/servicio-${id}`; // es donde ubico el imagen
+    const ref = this.storage.ref(filePath); // crea una referencia del imagenn
+    const task = this.storage.upload(filePath, file); // se sube al Storage
+    task // crea un url para el imagen para ALMACENARLO en firestore database!
       .snapshotChanges()
       .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
       .subscribe();
@@ -64,6 +69,8 @@ export class AgregarComponent implements OnInit {
       const servicioId = this.servicio?.id || null;
       this.serviciosSvc.guardarServicio(servicio, servicioId);
       this.servicioForm.reset();
+
+      // Subir imagen!
     }
   }
 
@@ -78,7 +85,7 @@ export class AgregarComponent implements OnInit {
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
-      // imagen: [this.],
+      imagenUrl: [''],
       descripcion: [''],
     });
   }

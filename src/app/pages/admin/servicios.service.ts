@@ -6,7 +6,8 @@ import {
   AngularFirestoreCollection,
 } from '@angular/fire/compat/firestore';
 
-import { map } from 'rxjs/operators';
+import { finalize, map } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,10 @@ export class ServiciosService {
   servicios: Observable<Servicio[]>;
 
   private serviciosCollection: AngularFirestoreCollection<Servicio>;
-  constructor(private readonly afs: AngularFirestore) {
+  constructor(
+    private readonly afs: AngularFirestore,
+    private storage: AngularFireStorage
+  ) {
     this.serviciosCollection = afs.collection<Servicio>('servicios'); // Creando una coleccion EN FIREBASE y llamandolo "servicios"
     this.getServicios();
   }
@@ -45,7 +49,7 @@ export class ServiciosService {
         // referido al reject
         reject(err.message);
       }
-    }); // promesa con la cual si todo vaya bien o algo vaya mal ??
+    }); // promesa con la cual si todo vaya bien o algo vaya mal
   }
 
   // este metodo va a FB, lee la coleccion de empleados y guardar esos servicios en "servicios" (linea 13)
@@ -56,4 +60,5 @@ export class ServiciosService {
         map((actions) => actions.map((a) => a.payload.doc.data() as Servicio))
       );
   }
+  subirImagen(file: File, servicio: Servicio) {}
 }
