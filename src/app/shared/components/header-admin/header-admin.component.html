@@ -30,13 +30,19 @@
           <a class="nav-link" [routerLink]="['/agregar']">Añadir Servicio</a>
         </li>
         <li class="nav-item">
-          <span class="nav-link">|</span>
+          <a class="nav-link" aria-disabled="true">|</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">Acerca De Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-disabled="true">|</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/tutorial']"><u>Tutorial</u></a>
         </li>
       </ul>
       <button class="btn btn-warning my-2" type="submit" (click)="onLogout()">

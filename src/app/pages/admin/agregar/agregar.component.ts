@@ -1,12 +1,16 @@
 import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Servicio } from 'src/app/shared/components/models/servicio.interface';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs/operators';
-import { Observable } from 'rxjs/internal/Observable';
 
+/*
+  Se complica la manera de mostrar el imagen en detalles.component.
+  Como puedo mostrarlo sin que sea un arreglo?? como habias hecho? o debe ser asi?
+
+  Ademas, cuando subo un imagen se crean en "c://fakepath//imagen". eso esta bien?
+*/
 @Component({
   selector: 'app-agregar',
   templateUrl: './agregar.component.html',
@@ -16,10 +20,8 @@ export class AgregarComponent implements OnInit {
   servicio: Servicio;
   servicioForm: FormGroup;
 
-  urlImage: Observable<string>;
-
+  // urlImage: Observable<string>;
   //imagen
-  private file!: File;
   public pathImage: string = '';
 
   constructor(
@@ -35,18 +37,8 @@ export class AgregarComponent implements OnInit {
 
   onUpload(e: any) {
     console.log('subir', e.target.files[0]);
-    // creando caracteres aleatorio para ponerle como id
-    const id = Math.random().toString(36).substring(2);
-    // escogiendo el arcchivo en si
-    var file = e.target.files[0];
-
-    const filePath = `Servicios/servicio-${id}`; // es donde ubico el imagen
-    const ref = this.storage.ref(filePath); // crea una referencia del imagenn
-    const task = this.storage.upload(filePath, file); // se sube al Storage
-    task // crea un url para el imagen para ALMACENARLO en firestore database!
-      .snapshotChanges()
-      .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
-      .subscribe();
+    const fileimg = e.target.files[0];
+    this.serviciosSvc.subirImagen;
   }
 
   /*obtenerImg() {
@@ -61,7 +53,7 @@ export class AgregarComponent implements OnInit {
     }
   }
 
-  onGuardar(): void {
+  onGuardar(e: any): void {
     alert('Servicio Publicado');
     console.log(this.servicioForm.value);
     if (this.servicioForm.valid) {
@@ -69,8 +61,6 @@ export class AgregarComponent implements OnInit {
       const servicioId = this.servicio?.id || null;
       this.serviciosSvc.guardarServicio(servicio, servicioId);
       this.servicioForm.reset();
-
-      // Subir imagen!
     }
   }
 

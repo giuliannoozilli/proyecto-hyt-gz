@@ -76,7 +76,7 @@ export class EditarComponent implements OnInit {
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
-      imagen: [this.urlImage],
+      imagenUrl: [''],
       descripcion: [''],
     });
   }

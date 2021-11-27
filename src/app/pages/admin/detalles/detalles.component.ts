@@ -18,11 +18,7 @@ export class DetallesComponent implements OnInit {
     },
   };
 
-  constructor(
-    private router: Router,
-    private serviciosSvc: ServiciosService,
-    private afStorage: AngularFireStorage
-  ) {
+  constructor(private router: Router, private serviciosSvc: ServiciosService) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state['balue'];
   }
