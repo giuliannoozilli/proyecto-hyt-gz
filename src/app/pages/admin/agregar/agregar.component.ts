@@ -34,7 +34,7 @@ export class AgregarComponent implements OnInit {
     console.log('subir', e.target.files[0]);
     const id = Math.random().toString(36).substring(2);
     var file = e.target.files[0];
-    const filePath = `Uploads/servicio-${id}`;
+    const filePath = `Servicios/servicio-${id}`;
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
     this.uploadPercent = task.percentageChanges();
