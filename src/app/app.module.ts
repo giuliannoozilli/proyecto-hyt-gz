@@ -11,7 +11,10 @@ import { HeaderAdminComponent } from './shared/components/header-admin/header-ad
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import {
+  AngularFireAuth,
+  AngularFireAuthModule,
+} from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 @NgModule({
   declarations: [
@@ -29,7 +32,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     AngularFireAuthModule,
     AngularFireStorageModule,
   ],
-  providers: [AngularFirestore],
+  providers: [AngularFireAuth, AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

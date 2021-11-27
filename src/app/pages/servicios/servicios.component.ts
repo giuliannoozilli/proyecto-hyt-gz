@@ -5,13 +5,17 @@ import { ServiciosService } from '../admin/servicios.service';
 @Component({
   selector: 'app-servicios',
   templateUrl: './servicios.component.html',
-  styleUrls: ['./servicios.component.css']
+  styleUrls: ['./servicios.component.css'],
 })
 export class ServiciosComponent implements OnInit {
   servicios$ = this.serviciosSvc.servicios;
-  constructor(private router: Router, private serviciosSvc: ServiciosService) { }
+  itemSeleccionado: any;
 
-  ngOnInit(): void {
+  constructor(private router: Router, private serviciosSvc: ServiciosService) {}
+
+  cargarModal(item: any) {
+    this.itemSeleccionado = item;
   }
 
+  ngOnInit(): void {}
 }

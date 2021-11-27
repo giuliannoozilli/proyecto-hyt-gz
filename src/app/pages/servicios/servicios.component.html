@@ -1,22 +1,24 @@
-<div class="container">
-  <div class="row">
+<hr class="dropdown-divider" />
+<div class="container d-flex justify-content-center">
+  <div>
     <div
+      *ngFor="let item of servicios$ | async"
       class="col card border-warning border-5 m-2"
       style="max-width: 40rem"
-      *ngFor="let item of [0, 1]"
     >
       <div class="card-body row">
         <div class="col-5">
-          <h4 class="card-title">Pepe hootel</h4>
+          <h4 class="card-title">{{ item.nombreserv }}</h4>
           <h5>
-            <span class="badge bg-warning"> alojamiento </span>
+            <span class="badge bg-warning"> {{ item.tipodeserv }} </span>
           </h5>
-          <p class="card-text"><sup>ARG</sup>$82000 por dia</p>
+          <p class="card-text"><sup>ARG</sup>${{ item.precio }}</p>
           <button
             type="button"
             class="btn btn-dark btn-sm"
             data-bs-toggle="modal"
             data-bs-target="#servicioModal2"
+            (click)="cargarModal(item)"
           >
             Obtener Informacion
           </button>
@@ -44,29 +46,33 @@
                   ></button>
                 </div>
                 <div class="modal-body">
-                  <h1 class="card-title text-center">Pepe hootel</h1>
+                  <h1 class="card-title text-center">
+                    {{ itemSeleccionado.nombreserv }}
+                  </h1>
                   <ul class="list-group">
                     <li class="list-group-item">
                       Tipo de servicio:
                       <h5>
-                        <span class="badge bg-warning"> alojamiento </span>
+                        <span class="badge bg-warning">
+                          {{ itemSeleccionado.tipodeserv }}
+                        </span>
                       </h5>
                     </li>
                     <li class="list-group-item">
                       Precio:
-                      <h5><sup>ARG</sup>$82000 por dia</h5>
+                      <h5><sup>ARG</sup>${{ itemSeleccionado.precio }}</h5>
                     </li>
                     <li class="list-group-item">
                       Direccion:
-                      <h5>san diego 123</h5>
+                      <h5>{{ itemSeleccionado.ubicacion }}</h5>
                     </li>
                     <li class="list-group-item">
                       Forma de contactar:
-                      <h5>299-234-2432</h5>
+                      <h5>{{ itemSeleccionado.formacontacto }}</h5>
                     </li>
                     <li class="list-group-item">
                       Descripcion:
-                      <h5>moscooooowwwwwwwwww</h5>
+                      <h5>{{ itemSeleccionado.descripcion }}</h5>
                     </li>
                   </ul>
                 </div>
@@ -85,5 +91,5 @@
       </div>
     </div>
   </div>
-  <hr class="dropdown-divider" />
 </div>
+<hr class="dropdown-divider" />

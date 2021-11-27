@@ -2,21 +2,32 @@
   <h1 class="mb-3 display-2 fw-bold text-center">
     Inicia sesion para empezar a vender.
   </h1>
+
   <div class="d-flex justify-content-center">
-    <form class="col-md-6">
+    <form class="col-md-6" (submit)="onLogin()">
       <div class="form-floating">
+        <!--[(ngModel)]=""-->
         <input
+          [(ngModel)]="email"
+          [ngModelOptions]="{ standalone: true }"
           type="email"
           class="form-control"
           placeholder="name@example.com"
+          required
         />
         <label for="floatingInput">Correo Electronico</label>
       </div>
       <div class="form-floating mb-5">
-        <input type="password" class="form-control" placeholder="Password" />
+        <input
+          [(ngModel)]="password"
+          [ngModelOptions]="{ standalone: true }"
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
         <label for="floatingPassword">Contraseña</label>
       </div>
-
       <button
         class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark"
         type="submit"
