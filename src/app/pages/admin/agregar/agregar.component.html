@@ -3,7 +3,7 @@
 <div class="container">
   <form
     class="mt-3 col-md-8 offset-md-2"
-    (ngSubmit)="onGuardar($event)"
+    (ngSubmit)="onGuardar()"
     [formGroup]="servicioForm"
   >
     <div class="row">
@@ -59,10 +59,17 @@
           type="file"
           accept=".png, .jpg"
           formControlName="imagenUrl"
+          (change)="onUpload($event)"
           required
         />
       </div>
-
+      <div class="progress my-3">
+        <div
+          class="progress-bar progress-bar-striped bg-success"
+          role="progressbar"
+          [style.width]="(uploadPercent | async) + '%'"
+        ></div>
+      </div>
       <div class="form-group mb-3">
         <textarea
           class="form-control"

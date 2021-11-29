@@ -10,7 +10,10 @@ import { ServiciosService } from '../servicios.service';
   styleUrls: ['./detalles.component.css'],
 })
 export class DetallesComponent implements OnInit {
-  servicio: Servicio = null;
+  // Como puedo hacer que muestre el imageN?? con {{ servicio.imagenUrl }} esta bien?
+  // productos[0].imagenUrl
+  servicio: Servicio;
+  // servicio: Servicio[] = [];
 
   navigationExtras: NavigationExtras = {
     state: {

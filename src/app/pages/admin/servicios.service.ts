@@ -61,27 +61,9 @@ export class ServiciosService {
       );
   }
 
-  private urlImage: string = '';
+  /*private urlImage: string = '';
   subirImagen(file: File, servicio: Servicio) {
-    // creando caracteres aleatorio para ponerle como id
-    const id = Math.random().toString(36).substring(2);
-
-    const filePath = `Servicios/servicio-${id}`; // es donde ubico el imagen
-    const ref = this.storage.ref(filePath); // crea una referencia del imagenn
-    const task = this.storage.upload(filePath, file); // se sube al Storage
-
     // crea un url para el imagen para ALMACENARLO en firestore database!
-    task
-      .snapshotChanges()
-      .pipe(
-        finalize(() =>
-          ref.getDownloadURL().subscribe((imagenUrl) => {
-            this.urlImage = imagenUrl;
-            servicio.imagenUrl = this.urlImage;
-            // this.guardarServicio(servicio);
-          })
-        )
-      )
-      .subscribe();
-  }
+
+  }*/
 }

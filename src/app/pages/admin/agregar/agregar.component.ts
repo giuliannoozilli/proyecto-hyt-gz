@@ -1,3 +1,4 @@
+import { finalize, Observable } from 'rxjs';
 import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -20,10 +21,6 @@ export class AgregarComponent implements OnInit {
   servicio: Servicio;
   servicioForm: FormGroup;
 
-  // urlImage: Observable<string>;
-  //imagen
-  public pathImage: string = '';
-
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -35,10 +32,27 @@ export class AgregarComponent implements OnInit {
     this.initForm();
   }
 
-  onUpload(e: any) {
+  urlImage: Observable<string>;
+  uploadPercent: Observable<number>;
+  public pathImage: string = '';
+
+  onUpload(e) {
     console.log('subir', e.target.files[0]);
     const fileimg = e.target.files[0];
-    this.serviciosSvc.subirImagen;
+    // creando caracteres aleatorio para ponerle como id
+    const id = Math.random().toString(36).substring(2);
+
+    const filePath = `Servicios/servicio-${id}`; // es donde ubico el imagen
+    const ref = this.storage.ref(filePath); // crea una referencia del imagenn
+    const task = this.storage.upload(filePath, fileimg); // se sube al Storage
+
+    this.uploadPercent = task.percentageChanges();
+
+    task
+      .snapshotChanges()
+      .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
+      .subscribe();
+    // this.serviciosSvc.subirImagen;
   }
 
   /*obtenerImg() {
@@ -53,7 +67,7 @@ export class AgregarComponent implements OnInit {
     }
   }
 
-  onGuardar(e: any): void {
+  onGuardar(): void {
     alert('Servicio Publicado');
     console.log(this.servicioForm.value);
     if (this.servicioForm.valid) {
