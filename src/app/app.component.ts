@@ -7,20 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  isSignedIn: any;
   constructor(public authSvc: AuthService) {
-    this.authSvc.user.subscribe(user => {
+    this.authSvc.user.subscribe((user) => {
       if (user) {
-        this.isSignedIn = true
+        this.isSignedIn = true;
+      } else {
+        this.isSignedIn = false;
       }
-      else {
-        this.isSignedIn = false
-      }
-    })
+    });
   }
-  
-  
-  
-  isSignedIn
-  
+
   title = 'proyecto-hyt-gz';
 }
