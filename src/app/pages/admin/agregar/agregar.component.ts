@@ -33,25 +33,16 @@ export class AgregarComponent implements OnInit {
   }
 
   urlImage: Observable<string>;
-  uploadPercent: Observable<number>;
+  // uploadPercent: Observable<number>;
+
   public pathImage: string = '';
 
-  onUpload(e) {
-    console.log('subir', e.target.files[0]);
-    const fileimg = e.target.files[0];
+  onUpload(event) {
+    console.log('subir', event.target.files[0]);
+    this.file = event.target.files[0];
     // creando caracteres aleatorio para ponerle como id
-    const id = Math.random().toString(36).substring(2);
+    // const id = Math.random().toString(36).substring(2);
 
-    const filePath = `Servicios/servicio-${id}`; // es donde ubico el imagen
-    const ref = this.storage.ref(filePath); // crea una referencia del imagenn
-    const task = this.storage.upload(filePath, fileimg); // se sube al Storage
-
-    this.uploadPercent = task.percentageChanges();
-
-    task
-      .snapshotChanges()
-      .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
-      .subscribe();
     // this.serviciosSvc.subirImagen;
   }
 
@@ -67,13 +58,15 @@ export class AgregarComponent implements OnInit {
     }
   }
 
-  onGuardar(): void {
+  private file!: File;
+  async onGuardar() {
     alert('Servicio Publicado');
     console.log(this.servicioForm.value);
     if (this.servicioForm.valid) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
-      this.serviciosSvc.guardarServicio(servicio, servicioId);
+      this.serviciosSvc.subirImagen(this.file, servicio, servicioId);
+      // this.serviciosSvc.guardarServicio(servicio, servicioId);
       this.servicioForm.reset();
     }
   }

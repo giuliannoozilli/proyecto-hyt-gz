@@ -37,7 +37,7 @@ export class ServiciosService {
 
   // recibe el servicio que queremos GUARDAR/EDITAR junto con su ID
   // servId es por predeterminado NULL
-  guardarServicio(servicio: Servicio, servId: string | any): Promise<void> {
+  guardarServicio(servicio: Servicio, servId: string): Promise<void> {
     return new Promise(async (resolve, reject) => {
       try {
         // referido al resolve
@@ -61,9 +61,24 @@ export class ServiciosService {
       );
   }
 
-  /*private urlImage: string = '';
-  subirImagen(file: File, servicio: Servicio) {
-    // crea un url para el imagen para ALMACENARLO en firestore database!
+  private urlImagen: string = '';
 
-  }*/
+  subirImagen(file: File, servicio: Servicio, servId: string) {
+    const imagenPath = `Servicios/${file.name}`;
+    const imageRef = this.storage.ref(imagenPath);
+    const tarea = this.storage.upload(imagenPath, file);
+
+    tarea
+      .snapshotChanges()
+      .pipe(
+        finalize(() => {
+          imageRef.getDownloadURL().subscribe((imagenUrl) => {
+            this.urlImagen = imagenUrl;
+            servicio.imagenUrl = this.urlImagen;
+            this.guardarServicio(servicio, servId);
+          });
+        })
+      )
+      .subscribe();
+  }
 }
