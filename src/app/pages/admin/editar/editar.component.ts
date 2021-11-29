@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs/operators';
-import { Observable } from 'rxjs/internal/Observable';
 import { Servicio } from 'src/app/shared/components/models/servicio.interface';
 import { ServiciosService } from '../servicios.service';
 
@@ -13,36 +10,19 @@ import { ServiciosService } from '../servicios.service';
   styleUrls: ['./editar.component.css'],
 })
 export class EditarComponent implements OnInit {
+  // Declaracion de propiedades 2
   servicio: Servicio;
   servicioForm: FormGroup;
-
-  // Para el cloud storage
-  uploadPercent: Observable<number>;
-  urlImage: Observable<string>;
+  private file?: File;
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private serviciosSvc: ServiciosService,
-    private storage: AngularFireStorage
+    private serviciosSvc: ServiciosService
   ) {
     const navigation = this.router.getCurrentNavigation();
     this.servicio = navigation?.extras?.state?.['balue'];
     this.initForm();
-  }
-
-  onUpload(e: any) {
-    // console.log('subir', e.target.files[0]);
-    const id = Math.random().toString(36).substring(2);
-    const file = e.target.files[0];
-    const filePath = `uploads/servicio-${id}`;
-    const ref = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
-    this.uploadPercent = task.percentageChanges();
-    task
-      .snapshotChanges()
-      .pipe(finalize(() => (this.urlImage = ref.getDownloadURL())))
-      .subscribe();
   }
 
   ngOnInit(): void {
@@ -54,13 +34,18 @@ export class EditarComponent implements OnInit {
     }
   }
 
-  onGuardar(): void {
+  onUpload(event) {
+    console.log('Subir Cambios', event.target.files[0]);
+    this.file = event.target.files[0];
+  }
+  async onGuardarEdit(): Promise<void> {
     alert('Cambios Guardados');
     console.log(this.servicioForm.value);
-    if (this.servicioForm.valid) {
+    if ((this.servicioForm.valid, this.file)) {
+      //14:51
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
-      this.serviciosSvc.guardarServicio(servicio, servicioId);
+      this.serviciosSvc.subirImagen(this.file!, servicio, servicioId);
       this.servicioForm.reset();
     }
   }

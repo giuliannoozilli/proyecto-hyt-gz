@@ -63,7 +63,7 @@ export class ServiciosService {
 
   private urlImagen: string = '';
 
-  subirImagen(file: File, servicio: Servicio, servId: string) {
+  subirImagen(file: File, servicio: Servicio, servId?: string) {
     const imagenPath = `Servicios/${file.name}`;
     const imageRef = this.storage.ref(imagenPath);
     const tarea = this.storage.upload(imagenPath, file);
@@ -75,6 +75,9 @@ export class ServiciosService {
           imageRef.getDownloadURL().subscribe((imagenUrl) => {
             this.urlImagen = imagenUrl;
             servicio.imagenUrl = this.urlImagen;
+            /*if(servId) { // ?
+              this.guardarServicio
+            }*/
             this.guardarServicio(servicio, servId);
           });
         })
