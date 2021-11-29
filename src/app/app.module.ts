@@ -16,12 +16,14 @@ import {
   AngularFireAuthModule,
 } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     HeaderAdminComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,

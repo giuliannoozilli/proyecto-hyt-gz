@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ServiciosService } from '../admin/servicios.service';
 
 @Component({
@@ -11,7 +10,7 @@ export class ServiciosComponent implements OnInit {
   servicios$ = this.serviciosSvc.servicios;
   itemSeleccionado: any;
 
-  constructor(private router: Router, private serviciosSvc: ServiciosService) {}
+  constructor(private serviciosSvc: ServiciosService) {}
 
   cargarModal(item: any) {
     this.itemSeleccionado = item;

@@ -52,6 +52,7 @@ const routes: Routes = [
       ),
   },
   { path: 'about', loadChildren: () => import('./pages/acercadenosotros/acercadenosotros.module').then(m => m.AcercadenosotrosModule) },
+  { path: 'contacto', loadChildren: () => import('./pages/contacto/contacto.module').then(m => m.ContactoModule) },
 ];
 
 @NgModule({

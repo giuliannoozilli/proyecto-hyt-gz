@@ -1,18 +1,29 @@
-<hr class="dropdown-divider" />
+<h1 class="display-3 text-center mb-5">
+  Explore los servicios a su disposicion.
+</h1>
+
 <div class="container d-flex justify-content-center">
-  <div>
+  <div class="row">
     <div
       *ngFor="let item of servicios$ | async"
-      class="col card border-warning border-5 m-2"
+      class="col-6 card border-warning border-5 m-2"
       style="max-width: 40rem"
     >
       <div class="card-body row">
         <div class="col-5">
-          <h4 class="card-title">{{ item.nombreserv }}</h4>
+          <h4 class="card-title">{{ item.nombreserv! }}</h4>
           <h5>
             <span class="badge bg-warning"> {{ item.tipodeserv }} </span>
           </h5>
           <p class="card-text"><sup>ARG</sup>${{ item.precio }}</p>
+          <div class="col">
+            <img
+              width="500"
+              class="img-fluid"
+              src="{{ item.imagenUrl }}"
+              alt="imagen de servicio hotelero"
+            />
+          </div>
           <button
             type="button"
             class="btn btn-dark btn-sm"
@@ -47,7 +58,7 @@
                 </div>
                 <div class="modal-body">
                   <h1 class="card-title text-center">
-                    {{ itemSeleccionado.nombreserv }}
+                    {{ itemSeleccionado.nombreserv! }}
                   </h1>
                   <ul class="list-group">
                     <li class="list-group-item">
@@ -80,16 +91,8 @@
             </div>
           </div>
         </div>
-        <div class="col">
-          <img
-            width="500"
-            class="img-fluid"
-            src="{{ item.imagenUrl }}"
-            alt="imagen de servicio hotelero"
-          />
-        </div>
+        <!--posicion del card antes-->
       </div>
     </div>
   </div>
 </div>
-<hr class="dropdown-divider" />
