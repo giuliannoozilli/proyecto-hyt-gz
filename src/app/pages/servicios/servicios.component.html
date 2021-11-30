@@ -2,8 +2,6 @@
   Explore los servicios a su disposicion.
 </h1>
 
-<!--<img src="assets/icons/filter_list_black.svg" width="24" />-->
-
 <div class="container-sm">
   <div
     class="card border border-3 border-dark mb-3 w-50"
@@ -11,7 +9,11 @@
   >
     <div class="card-body p-4 px-5">
       <div class="form-group">
-        <select class="form-select" formControlName="tipodeserv">
+        <select
+          id="categorySelect"
+          class="form-select"
+          formControlName="tipodeserv"
+        >
           <option value="alojamiento">Alojamiento</option>
           <option value="circuito Turistico">Circuito Turistico</option>
           <option value="restauracion">Restauracion</option>
