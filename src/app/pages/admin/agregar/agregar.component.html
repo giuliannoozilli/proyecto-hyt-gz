@@ -25,15 +25,12 @@
           required
         />
       </div>
+      <!--value="alojamiento"-->
       <div class="form-group col-md-6">
-        <select class="form-select" id="exampleSelect1">
-          <option value="alojamiento">Alojamiento</option>
-          <option value="circuitoTuristico">Circuito Turistico</option>
-          <option value="transporte">Transportacion</option>
-          <option value="restauracion">Restauracion</option>
-          <option value="intermediacion">Intermediacion</option>
-          <option value="miscelaneo">Misceláneo</option>
+        <select class="form-select" id="exampleSelect1" [(ngModel)]="selected">
+          <option *ngFor="let categoria of tipos">{{ categoria }}</option>
         </select>
+        {{ selected }}
       </div>
       <div class="form-group col-md-6">
         <input

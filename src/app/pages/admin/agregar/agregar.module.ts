@@ -1,4 +1,4 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,6 +7,11 @@ import { AgregarComponent } from './agregar.component';
 
 @NgModule({
   declarations: [AgregarComponent],
-  imports: [CommonModule, AgregarRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    AgregarRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
 export class AgregarModule {}

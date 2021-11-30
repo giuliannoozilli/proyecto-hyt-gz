@@ -18,6 +18,19 @@ export class AgregarComponent implements OnInit {
   private file?: File;
 
   public pathImage: string = '';
+
+  // sample collection
+  tipos = [
+    'Tipo de servicio:',
+    'Alojamiento',
+    'Circuito Turistico',
+    'Transportacion',
+    'Restauracion',
+    'Intermediacion',
+    'Misceláneo',
+  ];
+  selected: string = 'Tipo de servicio:';
+
   constructor(
     private router: Router,
     private fb: FormBuilder,

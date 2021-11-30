@@ -33,7 +33,7 @@
     >
       <div class="card-body row">
         <div class="col-6">
-          <h4 class="card-title">{{ item.nombreserv! }}</h4>
+          <h4 class="card-title">{{ item.nombreserv }}</h4>
           <h5>
             <span class="badge bg-warning"> {{ item.tipodeserv }} </span>
           </h5>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="modal-body">
                   <h1 class="card-title text-center">
-                    {{ itemSeleccionado.nombreserv! }}
+                    {{ itemSeleccionado.nombreserv }}
                   </h1>
                   <ul class="list-group">
                     <li class="list-group-item">
@@ -85,7 +85,11 @@
                     </li>
                     <li class="list-group-item">
                       Precio:
-                      <h5><sup>ARG</sup>${{ itemSeleccionado.precio }}</h5>
+                      <h5>
+                        <sup class="pt-1">ARG</sup>${{
+                          itemSeleccionado.precio
+                        }}
+                      </h5>
                     </li>
                     <li class="list-group-item">
                       Direccion:
