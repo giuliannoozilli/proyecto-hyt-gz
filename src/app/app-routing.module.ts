@@ -54,6 +54,12 @@ const routes: Routes = [
   { path: 'about', loadChildren: () => import('./pages/acercadenosotros/acercadenosotros.module').then(m => m.AcercadenosotrosModule) },
   { path: 'contacto', loadChildren: () => import('./pages/contacto/contacto.module').then(m => m.ContactoModule) },
   { path: 'casosdeexito', loadChildren: () => import('./pages/casosdeexito/casosdeexito.module').then(m => m.CasosdeexitoModule) },
+  { path: 'alojamiento', loadChildren: () => import('./pages/categorias/alojamiento/alojamiento.module').then(m => m.AlojamientoModule) },
+  { path: 'alojamiento', loadChildren: () => import('./pages/categorias/circuitoturistico/circuitoturistico.module').then(m => m.CircuitoturisticoModule) },
+  { path: 'alojamiento', loadChildren: () => import('./pages/categorias/restauracion/restauracion.module').then(m => m.RestauracionModule) },
+  { path: 'alojamiento', loadChildren: () => import('./pages/categorias/transportacion/transportacion.module').then(m => m.TransportacionModule) },
+  { path: 'alojamiento', loadChildren: () => import('./pages/categorias/intermediacion/intermediacion.module').then(m => m.IntermediacionModule) },
+  { path: 'alojamiento', loadChildren: () => import('./pages/categorias/miscelaneo/miscelaneo.module').then(m => m.MiscelaneoModule) },
 ];
 
 @NgModule({
