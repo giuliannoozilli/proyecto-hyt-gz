@@ -18,5 +18,6 @@ export class ServiciosComponent implements OnInit {
     this.itemSeleccionado = item;
   }
 
+  matchCategory() {}
   ngOnInit(): void {}
 }

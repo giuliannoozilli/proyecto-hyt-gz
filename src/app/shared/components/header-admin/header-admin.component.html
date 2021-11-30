@@ -1,6 +1,6 @@
 <nav class="mb-5 navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">
+    <a class="navbar-brand" [routerLink]="['/list']">
       <img
         src="assets/icons/hyt-logo-wh.svg"
         width="32"
@@ -33,6 +33,11 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/casosdeexito']"
+            >Casos De Exito</a
+          >
         </li>
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">Acerca De Nosotros</a>

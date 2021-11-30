@@ -25,7 +25,6 @@ export class ListComponent implements OnInit {
   constructor(
     private router: Router,
     private serviciosSvc: ServiciosService,
-    private angfStorage: AngularFireStorage,
     public inicomp: IniciarsesionComponent,
     private authService: AuthService
   ) {}
@@ -54,18 +53,4 @@ export class ListComponent implements OnInit {
     }
     alert('Servicio eliminado de la lista');
   }
-
-  // MOSTRAR IMG EN HTML
-  /*
-  storageRef = this.angfStorage.ref('Uploads/servicio-grvxim8dl55.jpeg');
-  // tangRef = this.storageRef.child();
-
-  async showImgHTML(): Promise<void> {
-    try {
-      this.storageRef.getDownloadURL().pipe(finalize(() => (document.querySelector('img'))))
-    } catch (err){
-      console.log(err.message)
-    }
-  }
-  */
 }

@@ -11,12 +11,13 @@
   >
     <div class="card-body p-4 px-5">
       <div class="form-group">
-        <select class="form-select col" id="exampleSelect1">
-          <option>Circuito Turistico</option>
-          <option>Alojamiento</option>
-          <option>Transporte</option>
-          <option>Restauracion</option>
-          <option>Intermediacion</option>
+        <select class="form-select" formControlName="tipodeserv">
+          <option value="alojamiento">Alojamiento</option>
+          <option value="circuito Turistico">Circuito Turistico</option>
+          <option value="restauracion">Restauracion</option>
+          <option value="transportacion">Transportacion</option>
+          <option value="intermediacion">Intermediacion</option>
+          <option value="miscelaneo">Misceláneo</option>
         </select>
       </div>
     </div>

@@ -14,22 +14,13 @@
         />
       </div>
       <div class="form-group col-md-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Tipo De Servicio"
-          formControlName="tipodeserv"
-        />
-      </div>
-
-      <div class="form-group col-md-6">
-        <select class="form-select" id="exampleSelect1">
-          <option>Alojamiento</option>
-          <option>Circuito Turistico</option>
-          <option>Transportacion</option>
-          <option>Restauracion</option>
-          <option>Intermediacion</option>
-          <option>Misceláneo</option>
+        <select class="form-select" formControlName="tipodeserv">
+          <option value="alojamiento">Alojamiento</option>
+          <option value="circuito turistico">Circuito Turistico</option>
+          <option value="restauracion">Restauracion</option>
+          <option value="transportacion">Transportacion</option>
+          <option value="intermediacion">Intermediacion</option>
+          <option value="miscelaneo">Misceláneo</option>
         </select>
       </div>
 
@@ -63,6 +54,7 @@
           type="file"
           accept=".png, .jpg"
           (change)="onUpload($event)"
+          formControlName="imagenUrl"
         />
       </div>
 

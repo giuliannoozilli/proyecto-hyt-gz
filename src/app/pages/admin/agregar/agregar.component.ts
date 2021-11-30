@@ -17,20 +17,6 @@ export class AgregarComponent implements OnInit {
   servicioForm: FormGroup;
   private file?: File;
 
-  public pathImage: string = '';
-
-  // sample collection
-  tipos = [
-    'Tipo de servicio:',
-    'Alojamiento',
-    'Circuito Turistico',
-    'Transportacion',
-    'Restauracion',
-    'Intermediacion',
-    'Misceláneo',
-  ];
-  selected: string = 'Tipo de servicio:';
-
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -57,7 +43,7 @@ export class AgregarComponent implements OnInit {
   async onGuardar(): Promise<void> {
     alert('Servicio Publicado');
     console.log(this.servicioForm.value);
-    if (this.servicioForm.valid) {
+    if ((this.servicioForm.valid, this.file)) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
       this.serviciosSvc.subirImagen(this.file!, servicio, servicioId);

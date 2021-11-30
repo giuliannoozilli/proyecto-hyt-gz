@@ -10,7 +10,6 @@ import { ServiciosService } from '../servicios.service';
   styleUrls: ['./editar.component.css'],
 })
 export class EditarComponent implements OnInit {
-  // Declaracion de propiedades 2
   servicio: Servicio;
   servicioForm: FormGroup;
   private file?: File;
@@ -38,11 +37,11 @@ export class EditarComponent implements OnInit {
     console.log('Subir Cambios', event.target.files[0]);
     this.file = event.target.files[0];
   }
+
   async onGuardarEdit(): Promise<void> {
     alert('Cambios Guardados');
     console.log(this.servicioForm.value);
-    if ((this.servicioForm.valid, this.file)) {
-      //14:51
+    if ((this.servicioForm.valid, this.file!)) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
       this.serviciosSvc.subirImagen(this.file!, servicio, servicioId);
