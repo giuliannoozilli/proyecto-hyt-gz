@@ -10,7 +10,9 @@ export class ServiciosComponent implements OnInit {
   servicios$ = this.serviciosSvc.servicios;
   itemSeleccionado: any;
 
-  constructor(private serviciosSvc: ServiciosService) {}
+  constructor(private serviciosSvc: ServiciosService) {
+    this.itemSeleccionado = this.serviciosSvc.servicios;
+  }
 
   cargarModal(item: any) {
     this.itemSeleccionado = item;
