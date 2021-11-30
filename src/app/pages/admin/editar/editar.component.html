@@ -22,6 +22,16 @@
         />
       </div>
       <div class="form-group col-md-6">
+        <select class="form-select" id="exampleSelect1">
+          <option>Alojamiento</option>
+          <option>Circuito Turistico</option>
+          <option>Transportacion</option>
+          <option>Restauracion</option>
+          <option>Intermediacion</option>
+          <option>Misceláneo</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
         <input
           type="text"
           class="form-control"
@@ -51,7 +61,6 @@
           class="form-control"
           type="file"
           accept=".png, .jpg"
-          formControlName="imagenUrl"
           (change)="onUpload($event)"
         />
       </div>

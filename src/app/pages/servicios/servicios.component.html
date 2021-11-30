@@ -4,8 +4,11 @@
 
 <!--<img src="assets/icons/filter_list_black.svg" width="24" />-->
 
-<div class="container d-flex justify-content-center">
-  <div class="card bg-light mb-3 w-50" style="max-width: 50rem">
+<div class="container-sm">
+  <div
+    class="card border border-3 border-dark mb-3 w-50"
+    style="max-width: 50rem"
+  >
     <div class="card-body p-4 px-5">
       <div class="form-group">
         <select class="form-select col" id="exampleSelect1">
@@ -19,6 +22,8 @@
     </div>
   </div>
 </div>
+<br />
+
 <div class="container d-flex justify-content-center">
   <div class="row">
     <div
@@ -27,20 +32,12 @@
       style="max-width: 40rem"
     >
       <div class="card-body row">
-        <div class="col-5">
+        <div class="col-6">
           <h4 class="card-title">{{ item.nombreserv! }}</h4>
           <h5>
             <span class="badge bg-warning"> {{ item.tipodeserv }} </span>
           </h5>
           <p class="card-text"><sup>ARG</sup>${{ item.precio }}</p>
-          <div class="col">
-            <img
-              width="500"
-              class="img-fluid"
-              src="{{ item.imagenUrl }}"
-              alt="imagen de servicio hotelero"
-            />
-          </div>
           <button
             type="button"
             class="btn btn-dark btn-sm"
@@ -109,6 +106,14 @@
           </div>
         </div>
         <!--posicion del card antes-->
+        <div class="col">
+          <img
+            width="500"
+            class="img-fluid"
+            src="{{ item.imagenUrl }}"
+            alt="imagen de servicio hotelero"
+          />
+        </div>
       </div>
     </div>
   </div>
