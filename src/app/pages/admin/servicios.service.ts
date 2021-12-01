@@ -75,9 +75,6 @@ export class ServiciosService {
           imageRef.getDownloadURL().subscribe((imagenUrl) => {
             this.urlImagen = imagenUrl;
             servicio.imagenUrl = this.urlImagen;
-            /*if(servId) { // ?
-              this.guardarServicio
-            }*/
             this.guardarServicio(servicio, servId);
           });
         })
