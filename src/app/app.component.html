@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<app-header></app-header>
-=======
-<app-header Hidden></app-header>
->>>>>>> 79f5a96f030de7458a4a9b8aa0f45e0de2ddd08e
-<app-header-admin></app-header-admin>
+<app-header *ngIf="!isSignedIn"></app-header>
+<app-header-admin *ngIf="isSignedIn"></app-header-admin>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

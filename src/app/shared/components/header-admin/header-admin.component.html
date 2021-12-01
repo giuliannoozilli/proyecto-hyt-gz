@@ -1,13 +1,13 @@
 <nav class="mb-5 navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/inicio']">
+    <a class="navbar-brand" [routerLink]="['/list']">
       <img
         src="assets/icons/hyt-logo-wh.svg"
         width="32"
         height="32"
         alt="hyt logo blanco"
       />
-      Hoteleria y Turismo<sup style="font-size: 15px">Admin</sup>
+      Cipolletti Host<sup style="font-size: 15px">Admin</sup>
     </a>
     <button
       class="navbar-toggler"
@@ -24,14 +24,31 @@
     <div class="collapse navbar-collapse" id="navbarColor03">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/list']">Lista</a>
+          <a class="nav-link" [routerLink]="['/list']"><u>Lista</u></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/agregar']">Añadir</a>
+          <a class="nav-link" [routerLink]="['/agregar']"
+            ><u>Añadir Servicio</u></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/casosdeexito']"
+            >Casos De Exito</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about']">Acerca De Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/tutorial']">Tutorial</a>
         </li>
       </ul>
-      <button class="btn btn-warning my-2 my-sm-0" type="submit">
+      <button class="btn btn-warning my-2" type="submit" (click)="onLogout()">
         Salir De Sesion
+        <img src="assets/icons/logout-white.svg" />
       </button>
     </div>
   </div>

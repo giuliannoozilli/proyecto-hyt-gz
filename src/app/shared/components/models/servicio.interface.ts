@@ -5,5 +5,6 @@ export interface Servicio {
   tipodeserv: string;
   ubicacion: string;
   formacontacto: string;
+  imagenUrl: string;
   descripcion: string;
 }

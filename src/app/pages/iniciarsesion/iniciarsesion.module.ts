@@ -1,3 +1,4 @@
+import { ContactoComponent } from './../contacto/contacto.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,7 +7,7 @@ import { IniciarsesionComponent } from './iniciarsesion.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [IniciarsesionComponent],
+  declarations: [IniciarsesionComponent, ContactoComponent],
   imports: [CommonModule, IniciarsesionRoutingModule, FormsModule],
 })
 export class IniciarsesionModule {}

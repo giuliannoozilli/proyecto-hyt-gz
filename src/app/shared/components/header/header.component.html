@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" [routerLink]="['/inicio']">
       <img src="assets/icons/hyt-logo-dgrey.svg" />
-      Hoteleria y Turismo
+      Cipolletti Host
     </a>
     <button
       class="navbar-toggler"
@@ -22,8 +22,14 @@
           <a class="nav-link" [routerLink]="['/servicios']">Servicios</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/casosdeexito']"
+            >Casos De Exito</a
+          >
+        </li>
+        <li class="nav-item">
           <a class="nav-link" [routerLink]="['/about']">Acerca De Nosotros</a>
         </li>
+        <!--Este link estara deshabilitado hasta que recibe un opinion de un cliente real-->
       </ul>
       <button
         class="btn btn-warning my-2 my-sm-0"

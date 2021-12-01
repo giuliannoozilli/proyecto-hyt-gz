@@ -1,8 +1,10 @@
+import { finalize, Observable } from 'rxjs';
 import { ServiciosService } from './../servicios.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Servicio } from 'src/app/shared/components/models/servicio.interface';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'app-agregar',
@@ -10,8 +12,10 @@ import { Servicio } from 'src/app/shared/components/models/servicio.interface';
   styleUrls: ['./agregar.component.css'],
 })
 export class AgregarComponent implements OnInit {
+  // Declaracion de propiedades
   servicio: Servicio;
   servicioForm: FormGroup;
+  private file?: File;
 
   constructor(
     private router: Router,
@@ -23,22 +27,26 @@ export class AgregarComponent implements OnInit {
     this.initForm();
   }
 
+  onUpload(event) {
+    console.log('subir', event.target.files[0]);
+    this.file = event.target.files[0];
+  }
+
   ngOnInit(): void {
     if (typeof this.servicio === 'undefined') {
-      // redireccionar!
       this.router.navigate(['agregar']);
     } else {
       this.servicioForm.patchValue(this.servicio);
     }
   }
 
-  onGuardar(): void {
+  async onGuardar(): Promise<void> {
     alert('Servicio Publicado');
     console.log(this.servicioForm.value);
-    if (this.servicioForm.valid) {
+    if ((this.servicioForm.valid, this.file)) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
-      this.serviciosSvc.guardarServicio(servicio, servicioId);
+      this.serviciosSvc.subirImagen(this.file!, servicio, servicioId);
       this.servicioForm.reset();
     }
   }
@@ -54,7 +62,7 @@ export class AgregarComponent implements OnInit {
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
-      // imagen: [''],
+      imagenUrl: [''],
       descripcion: [''],
     });
   }

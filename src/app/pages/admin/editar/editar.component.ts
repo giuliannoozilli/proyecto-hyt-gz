@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Servicio } from 'src/app/shared/components/models/servicio.interface';
 import { ServiciosService } from '../servicios.service';
@@ -12,6 +12,7 @@ import { ServiciosService } from '../servicios.service';
 export class EditarComponent implements OnInit {
   servicio: Servicio;
   servicioForm: FormGroup;
+  private file?: File;
 
   constructor(
     private router: Router,
@@ -32,13 +33,18 @@ export class EditarComponent implements OnInit {
     }
   }
 
-  onGuardar(): void {
+  onUpload(event) {
+    console.log('Subir Cambios', event.target.files[0]);
+    this.file = event.target.files[0];
+  }
+
+  async onGuardarEdit(): Promise<void> {
     alert('Cambios Guardados');
     console.log(this.servicioForm.value);
-    if (this.servicioForm.valid) {
+    if ((this.servicioForm.valid, this.file!)) {
       const servicio = this.servicioForm.value;
       const servicioId = this.servicio?.id || null;
-      this.serviciosSvc.guardarServicio(servicio, servicioId);
+      this.serviciosSvc.subirImagen(this.file!, servicio, servicioId);
       this.servicioForm.reset();
     }
   }
@@ -54,7 +60,7 @@ export class EditarComponent implements OnInit {
       precio: [''],
       ubicacion: [''],
       formacontacto: [''],
-      // imagen: [''],
+      imagenUrl: [''],
       descripcion: [''],
     });
   }

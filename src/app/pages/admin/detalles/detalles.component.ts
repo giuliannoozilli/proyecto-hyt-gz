@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { NavigationExtras, Router } from '@angular/router';
 import { Servicio } from 'src/app/shared/components/models/servicio.interface';
 import { ServiciosService } from '../servicios.service';
@@ -9,7 +10,10 @@ import { ServiciosService } from '../servicios.service';
   styleUrls: ['./detalles.component.css'],
 })
 export class DetallesComponent implements OnInit {
-  servicio: Servicio = null;
+  // Como puedo hacer que muestre el imageN?? con {{ servicio.imagenUrl }} esta bien?
+  // productos[0].imagenUrl
+  servicio: Servicio;
+  // servicio: Servicio[] = [];
 
   navigationExtras: NavigationExtras = {
     state: {

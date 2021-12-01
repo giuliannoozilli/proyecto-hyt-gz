@@ -1,29 +1,31 @@
 <div class="container">
   <h1 class="display-2 text-center mb-5">
-    Bienvenidos, <strong class="fw-bold">Leonardo</strong>.
+    ¡Bienvenidos, <strong class="fw-bold">{{ email$ }}</strong
+    >!
   </h1>
-
   <div class="table-responsive">
     <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col">Nombre</th>
           <th scope="col">Tipo De Servicio</th>
-          <!--<th scope="col">Precio</th>-->
+          <th scope="col">Precio</th>
           <th scope="col">Direccion</th>
           <th scope="col">Forma De Contacto</th>
-          <th scope="col"></th>
+          <th scope="col">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of servicios$ | async">
           <th scope="row">{{ item.nombreserv }}</th>
-          <td><span class="badge bg-warning"> {{ item.tipodeserv }}</span></td>
-          <!--<td>$900<sup>/Mes</sup></td>-->
+          <td>
+            <span class="badge bg-warning"> {{ item.tipodeserv }}</span>
+          </td>
+          <td><sup>ARG</sup>${{ item.precio }}</td>
           <td>{{ item.ubicacion }}</td>
           <td>{{ item.formacontacto }}</td>
           <td>
-            <div class="">
+            <div class="d-flex justify-content-end">
               <button
                 type="button"
                 class="btn btn-outline-success m-2"
@@ -36,7 +38,8 @@
                 class="btn btn-outline-warning m-2"
                 (click)="goToVerDetalles(item)"
               >
-                <img src="assets/icons/details.svg" />Ver Detalles
+                <img src="assets/icons/details.svg" />
+                <p>Ver Detalles</p>
               </button>
               <button
                 type="button"

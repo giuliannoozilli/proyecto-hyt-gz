@@ -13,23 +13,26 @@
           class="form-control"
           placeholder="Nombre del servicio"
           formControlName="nombreserv"
+          required
         />
       </div>
       <div class="form-group col-md-6">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Tipo De Servicio"
-          formControlName="tipodeserv"
-        />
+        <select class="form-select" formControlName="tipodeserv">
+          <option value="alojamiento">Alojamiento</option>
+          <option value="circuito Turistico">Circuito Turistico</option>
+          <option value="restauracion">Restauracion</option>
+          <option value="transportacion">Transportacion</option>
+          <option value="intermediacion">Intermediacion</option>
+          <option value="miscelaneo">Misceláneo</option>
+        </select>
       </div>
-
       <div class="form-group col-md-6">
         <input
           type="text"
           class="form-control"
           placeholder="Precio (Por mes, semana, dia, ....)"
           formControlName="precio"
+          required
         />
       </div>
       <div class="form-group col-md-6">
@@ -38,6 +41,7 @@
           class="form-control"
           placeholder="Direccion"
           formControlName="ubicacion"
+          required
         />
       </div>
       <div class="form-group col-md-12">
@@ -46,15 +50,28 @@
           class="form-control"
           placeholder="Forma De Contactar"
           formControlName="formacontacto"
+          required
         />
       </div>
-      <!--
+
       <div class="form-group col-md-6">
-        <input class="form-control" type="file" id="formFile" />
+        <input
+          class="form-control"
+          type="file"
+          accept=".png, .jpg"
+          formControlName="imagenUrl"
+          (change)="onUpload($event)"
+          required
+        />
       </div>
-      -->
       <div class="form-group mb-3">
-        <textarea class="form-control" aria-label="With textarea" placeholder="Descripcion" formControlName="descripcion"></textarea>
+        <textarea
+          class="form-control"
+          aria-label="With textarea"
+          placeholder="Descripcion"
+          formControlName="descripcion"
+          required
+        ></textarea>
       </div>
     </div>
     <div class="d-flex justify-content-center">

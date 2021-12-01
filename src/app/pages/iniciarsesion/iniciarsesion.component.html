@@ -2,44 +2,42 @@
   <h1 class="mb-3 display-2 fw-bold text-center">
     Inicia sesion para empezar a vender.
   </h1>
+
   <div class="d-flex justify-content-center">
-    <form class="col-md-6">
+    <form class="col-md-6" (submit)="onLogin()">
       <div class="form-floating">
+        <!--[(ngModel)]=""-->
         <input
-          [(ngModel)]="usuario.email"
+          [(ngModel)]="email"
           [ngModelOptions]="{ standalone: true }"
           type="email"
           class="form-control"
           placeholder="name@example.com"
+          required
         />
         <label for="floatingInput">Correo Electronico</label>
       </div>
       <div class="form-floating mb-5">
         <input
-          [(ngModel)]="usuario.password"
+          [(ngModel)]="password"
           [ngModelOptions]="{ standalone: true }"
           type="password"
           class="form-control"
           placeholder="Password"
+          required
         />
         <label for="floatingPassword">Contraseña</label>
       </div>
-
       <button
         class="d-flex justify-content-center mx-auto w-50 btn btn-lg btn-dark"
-        type="button"
+        type="submit"
       >
         Iniciar Sesion
+        <div>
+          <img src="assets/icons/login_white.svg" alt="sign in icono" />
+        </div>
       </button>
     </form>
   </div>
-  <p class="d-flex justify-content-center my-2">
-    ¿No tienes una cuenta?
-    <a
-      type="button"
-      class="py-0 px-1 btn btn-link"
-      href="mailto: gzilli01@hotmail.com"
-      >Contactenos.</a
-    >
-  </p>
+  <app-contacto></app-contacto>
 </main>
